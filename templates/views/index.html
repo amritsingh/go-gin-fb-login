@@ -1,0 +1,14 @@
+{{ define "views/index.html"}}
+    {{ template "layouts/header.html" .}}
+        <h1>Facebook Login</h1>
+        {{ if .user }}
+            <h3> Yor're {{.user.Email}} on Facebook</h3>
+
+            <form action="/logout" method="POST">
+                <button type="submit nav-item" class="btn btn-outline-danger">Logout</button>
+            </form>
+        {{ else }}
+            <a class="btn btn-outline-primary" href="{{.authUrl}}" role="button">Login</a>
+        {{ end }}
+    {{ template "layouts/footer.html" .}}
+{{ end }}
